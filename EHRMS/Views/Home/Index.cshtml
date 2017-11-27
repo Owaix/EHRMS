@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="MyApp">
+    <div ng-controller="GetList">
+        <div ng-repeat="x in list">
+            {{x}}
+        </div>
+    </div>
+</div>
