@@ -14,6 +14,7 @@ using System.Web.UI;
 using DataAccess.UOW;
 using Common.Utility;
 using EHRMS.IdentityExtensions;
+using System.Web;
 
 namespace EHRMS.Controllers
 {
@@ -61,6 +62,19 @@ namespace EHRMS.Controllers
             list.Add(new Country { Id = 3, Name = "China" });
             list.Add(new Country { Id = 4, Name = "USA" });
             // emp.Country = new SelectList(list, "Id", "Name");
+            return View();
+        }
+
+        public ActionResult UploadImg(HttpPostedFileWrapper ImageFile)
+        {
+            var file = ImageFile;
+            if (file != null)
+            {
+                var filename = Path.GetFileName(file.FileName);
+                var ext = Path.GetExtension(file.FileName);
+                var filewithout = Path.GetFileNameWithoutExtension(file.FileName);
+                file.SaveAs(Server.MapPath("/Assets/" + file.FileName));
+            }
             return View();
         }
 

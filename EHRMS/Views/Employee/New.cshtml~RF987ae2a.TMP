@@ -236,36 +236,36 @@
         </section>
     </div>
 </div>
-@*<script src="~/Scripts/EmployeeNew.js"></script>*@
+<script src="~/Scripts/EmployeeNew.js"></script>
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script>
     $(document).ready(function () {
-        //var data = new FormData();
-        //data.append("Name", "OWais");
-        //data.append("Id", 23);
-        //$.ajax({
-        //    type: "POST",
-        //    url: "/Employee/ActionMethod",
-        //    data: data,
-        //    contentType: "application/json; charset=utf-8",
-        //    dataType: "json",
-        //    success: function (response) {
-        //        alert(response.d);
-        //    },
-        //    failure: function (response) {
-        //        alert(response.d);
-        //    }
-        //});
+        var data = new FormData();
+        data.append("Name", "OWais");
+        data.append("Id", 23);
+        $.ajax({
+            type: "POST",
+            url: "/Employee/ActionMethod",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                alert(response.d);
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
 
-        $("#lnkSave").click(function () {
-            //var Uploadimage = function () {
-            var file = $("#fileCert").get(0).files;
+      
+        var Uploadimage = function () {
+            var file = $("#imageBrowes").get(0).files;
             var data = new FormData;
             data.append("ImageFile", file[0]);
-            //data.append("ProductName", "SamsungA8");
+            data.append("ProductName", "SamsungA8");
             $.ajax({
                 type: "Post",
-                url: "/Employee/UploadImg",
+                url: "/Test/ImageUpload",
                 data: data,
                 contentType: false,
                 processData: false,
@@ -274,7 +274,7 @@
                     $("#uploadedImage").append('<img src="/UploadedImage/' + response + '" class="img-responsive thumbnail"/>');
                 }
             });
-            // }
-        });
+        }
+
     });
 </script>
