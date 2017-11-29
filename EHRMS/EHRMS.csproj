@@ -757,6 +757,7 @@
     <Content Include="Assets\morris.js-0.4.3\spec\support\placeholder.coffee" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\calendar-custom.js" />
+    <Content Include="Scripts\Calender.js" />
     <Content Include="Scripts\chartjs-custom.js" />
     <Content Include="Scripts\charts-flot.js" />
     <Content Include="Scripts\charts-other.js" />
@@ -1439,6 +1440,7 @@
     <Content Include="Template\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Home\SendMail.cshtml" />
+    <Content Include="Views\Home\Calender.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Angular\" />
