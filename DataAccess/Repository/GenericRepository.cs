@@ -6,16 +6,16 @@ using System.Data;
 
 namespace DataAccess.Repository
 {
-   public class GenericRepository<T> : IRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private DbContext entities = null;
+        private DbContext entities;
         IDbSet<T> _objectSet;
 
-        public GenericRepository(DbContext _entities)
+        public GenericRepository(HrContext _entities)
         {
             entities = _entities;
             _objectSet = entities.Set<T>();
-            // _objectSet = entities.CreateObjectSet<T>();
+            //     _objectSet = entities.CreateObjectSet<T>();
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null)

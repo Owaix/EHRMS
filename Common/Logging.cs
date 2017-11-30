@@ -31,17 +31,17 @@ namespace Common
                 log.Error($"Sql Exception occured : { ex.Message} \n Stack Trace :  { ex.StackTrace }");
                 expMessage = ex.Message;
             }
-            //catch (IOException ex)
-            //{
-            //    expMessage = ex.Message;
-            //    _logger.Error($"IOException occured : { expMessage} \n Stack Trace :  { ex.StackTrace }");
-            //}
-            //// added this to catch exceptions other than sql and io exceptions : imran
-            //catch (Exception ex)
-            //{
-            //    expMessage = ex.Message;
-            //    _logger.Error($"Exception occured : { expMessage} \n Stack Trace :  { ex.StackTrace }");
-            //}
+            catch (IOException ex)
+            {
+                expMessage = ex.Message;
+                log.Error($"IOException occured : { expMessage} \n Stack Trace :  { ex.StackTrace }");
+            }
+            // added this to catch exceptions other than sql and io exceptions : imran
+            catch (Exception ex)
+            {
+                expMessage = ex.Message;
+                log.Error($"Exception occured : { expMessage} \n Stack Trace :  { ex.StackTrace }");
+            }
             return (retVal);
         }
     }

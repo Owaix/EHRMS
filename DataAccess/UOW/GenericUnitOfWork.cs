@@ -9,15 +9,14 @@ namespace DataAccess.UOW
 {
     public class GenericUnitOfWork : IDisposable, IGenericUnitOfWork
     {
-        private DbContext entities = null;
-
+        private HrContext entities;
 
         public DbContext Context { get { return entities; } }
 
-        //public GenericUnitOfWork()
-        //{
-        //    entities = new QMSContext();
-        //}
+        public GenericUnitOfWork()
+        {
+            entities = new HrContext();
+        }
 
         public GenericUnitOfWork(HrContext _qmsContext)
         {

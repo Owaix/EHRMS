@@ -15,6 +15,7 @@ using DataAccess.UOW;
 using Common.Utility;
 using EHRMS.IdentityExtensions;
 using System.Web;
+using EHRMS.Models;
 
 namespace EHRMS.Controllers
 {
@@ -65,9 +66,9 @@ namespace EHRMS.Controllers
             return View();
         }
 
-        public ActionResult UploadImg(HttpPostedFileWrapper ImageFile)
+        public ActionResult UploadImg(Academic Academic)
         {
-            var file = ImageFile;
+            var file = Academic.file;
             if (file != null)
             {
                 var filename = Path.GetFileName(file.FileName);

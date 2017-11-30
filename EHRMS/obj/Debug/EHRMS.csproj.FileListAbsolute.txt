@@ -1,4 +1,3 @@
-C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\ApplicationInsights.config
 C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\roslyn\csc.exe
 C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -259,3 +258,10 @@ C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\log4
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\obj\Debug\EHRMS.csprojResolveAssemblyReference.cache
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\obj\Debug\EHRMS.dll
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\obj\Debug\EHRMS.pdb
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\Common.dll
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\DataAccess.dll
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\log4net.dll
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\NLog.dll
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\Common.pdb
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\DataAccess.pdb
+C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\EHRMS\bin\log4net.xml

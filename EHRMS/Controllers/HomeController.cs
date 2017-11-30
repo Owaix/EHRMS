@@ -2,12 +2,10 @@
 using DataAccess;
 using DataAccess.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using EHRMS.IdentityExtensions;
 using EHRMS.Models;
@@ -26,7 +24,6 @@ namespace EHRMS.Controllers
         private GenericRepository<FeatureAccessConfig> FeatureConfig;
         private GenericRepository<Roles> RolRep;
         private GenericRepository<Features> FeaRep;
-
         public HomeController()
         {
         }
@@ -62,21 +59,18 @@ namespace EHRMS.Controllers
         //}
         public ActionResult AccessConfig()
         {
-            HrContext db = new HrContext();
-            FeatureRoles Fr = new FeatureRoles();
-            var RolesModel = db.role.ToList();// RolRep.GetAll();
-            Fr.Role = Mapper.Map<IEnumerable<RolesVM>>(RolesModel);
-            var FeatModel = db.feature.ToList();//FeaRep.GetAll();
-            Fr.Feature = Mapper.Map<IEnumerable<FeaturesVM>>(FeatModel);
+            var RolesModel = RolRep.GetAll();
+            var Role = Mapper.Map<IEnumerable<RolesVM>>(RolesModel);
+            var FeatModel = FeaRep.GetAll();
+            var Feature = Mapper.Map<IEnumerable<FeaturesVM>>(FeatModel);
             return View();
         }
         public ActionResult AccessConfigJson()
         {
-            HrContext db = new HrContext();
             FeatureRoles Fr = new FeatureRoles();
-            var RolesModel = db.role.ToList();// RolRep.GetAll();
+            var RolesModel = RolRep.GetAll();
             Fr.Role = Mapper.Map<IEnumerable<RolesVM>>(RolesModel);
-            var FeatModel = db.feature.ToList();//FeaRep.GetAll();
+            var FeatModel = FeaRep.GetAll();
             Fr.Feature = Mapper.Map<IEnumerable<FeaturesVM>>(FeatModel);
             return Json(Fr, JsonRequestBehavior.AllowGet);
         }
