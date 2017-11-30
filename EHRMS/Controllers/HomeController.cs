@@ -50,7 +50,10 @@ namespace EHRMS.Controllers
         {
             return View();
         }
-
+        public ActionResult Calender()
+        {
+            return View();
+        }
         //public async Task<Iaction> ActionResult About()
         //{
         //    ViewBag.Message = "Your application description page.";
