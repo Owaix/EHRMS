@@ -1,8 +1,13 @@
 ﻿$(document).ready(function () {
     GetHeader();
     GetBody();
-    $('table td').on('click', function () {
-        $(this).addClass("Normal");
+    $('table td.shift').on('click', function () {
+        if ($(this).hasClass("Normal")) {
+            $(this).removeClass("Normal")
+            $(this).addClass("Timeoff")
+        } else {
+            $(this).addClass("Normal");
+        }
         var val1 = $(this).attr("value").split("_")[0];
         var val2 = $(this).attr("value").split("_")[1];
         $(this).html("<span>" + val1 + " " + val2 + "<i class='glyphicon glyphicon-cog margincog'></i></span>");
@@ -13,8 +18,9 @@
         $("#modelBody").html("<p>Date: <input type='text' id='datepicker'></p><br><input type='button' value='Submit' id='btn'>");
         $("#datepicker").datepicker();
     });
-    $('#model').on('click','#btn', function () {
-        alert("dsd");
+
+    $('#modelBody').on('click', '#btn', function () {
+       
     });
 });
 function GetHeader() {
@@ -47,7 +53,7 @@ function GetBody() {
         body += Employee[ind].Name;
         body += '</td>';
         for (var i = 1 ; i <= 7 ; i++) {
-            body += '<td value="' + Employee[ind].Id + '_' + i + '" class="borders">';
+            body += '<td value="' + Employee[ind].Id + '_' + i + '" class="borders shift">';
             //body += ;
             body += '</td>';
         }
