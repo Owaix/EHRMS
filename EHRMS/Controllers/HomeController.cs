@@ -106,7 +106,7 @@ namespace EHRMS.Controllers
                 }
             }
             unitOfWork.Save();
-            return Json("Inserted");
+            return Json(data: true);
         }
         public ActionResult Contact()
         {

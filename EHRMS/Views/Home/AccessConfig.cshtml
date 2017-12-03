@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script>
+</script>
+<div class="botAlert">
+</div>
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -47,8 +52,8 @@
         </div>
     </div>
 </div>
-
 <script>
+
     $.ajax({
         type: "GET",
         url: "/Home/AccessConfigJson",
@@ -135,16 +140,21 @@
             Rol.push(Role);
         });
         var JsonModel = { Feature: Feat, Role: Rol, IsActive: IsTrue }
+
         $.ajax({
             type: "POST",
             url: "/Home/AddFeature",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify({ FeatureRole: JsonModel }),
-            success: function (datas) {
-                for (var i = 0; i < datas.length ; i++) {
-                    var Val = datas[i].Name + " " + datas[i].Id;
-                    //     alert(Val);
+            success: function (data) {
+                if (data == true) {
+                    $('.botAlert').html("<div class='alert alert-success fade'>" +
+                                "<button type='button' class='close' data-dismiss='alert'>×</button>" +
+                                "<strong>Alert!</strong> Here is my message.." +
+                                 "</div>");
+                    $(".alert").removeClass("in").show();
+                    $(".alert").delay(200).addClass("in").fadeOut(2000);
                 }
             },
             error: function (request, status, error) {

@@ -234,6 +234,10 @@
     <Compile Include="ViewModel\UserIdentity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EHRMS.mdf" />
+    <Content Include="App_Data\EHRMS_log.ldf">
+      <DependentUpon>EHRMS.mdf</DependentUpon>
+    </Content>
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
     <Content Include="Assets\chart-master\Chart.min.js" />
