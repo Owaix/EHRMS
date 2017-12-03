@@ -95,26 +95,26 @@
         console.log(arr[0] + '____' + arr[1]);
     });
 
-    //$.ajax({
-    //    type: "GET",
-    //    url: "/Home/GetFeature",
-    //    contentType: "application/json; charset=utf-8",
-    //    dataType: "json",
-    //    success: function (data) {
-    //        $('.table td input:checkbox').each(function (index, row) {
-    //            var Feature = parseInt($(row).val().split("_")[0]);
-    //            var Role = parseInt($(row).val().split("_")[1]);
-    //            for (var i = 0; i < data.length ; i++) {
-    //                if (data[i].Feature_Id == Feature && data[i].Role_Id == Role && data[i].IsCheck == true) {
-    //                    $(this).attr("Checked", true);
-    //                }
-    //            }
-    //        });
-    //    },
-    //    error: function (request, status, error) {
-    //        alert(request, status, error);
-    //    }
-    //});
+    $.ajax({
+        type: "GET",
+        url: "/Home/GetFeature",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            $('.table td input:checkbox').each(function (index, row) {
+                var Feature = parseInt($(row).val().split("_")[0]);
+                var Role = parseInt($(row).val().split("_")[1]);
+                for (var i = 0; i < data.length ; i++) {
+                    if (data[i].Feature_Id == Feature && data[i].Role_Id == Role && data[i].IsCheck == true) {
+                        $(this).attr("Checked", true);
+                    }
+                }
+            });
+        },
+        error: function (request, status, error) {
+            alert(request, status, error);
+        }
+    });
 
     $('#btn').click(function () {
         var Feat = [];

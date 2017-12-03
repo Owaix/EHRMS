@@ -19,3 +19,10 @@ C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\log4
 C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\log4net.xml
 C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.dll
 C:\Users\champ\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.pdb
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\bin\Debug\Common.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\bin\Debug\Common.pdb
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\bin\Debug\log4net.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\bin\Debug\log4net.xml
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\obj\Debug\Common.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\Common\obj\Debug\Common.pdb

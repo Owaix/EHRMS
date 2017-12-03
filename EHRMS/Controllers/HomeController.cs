@@ -26,14 +26,14 @@ namespace EHRMS.Controllers
         private GenericRepository<Features> FeaRep;
         public HomeController()
         {
-        }
-        public HomeController(UserManager<ApplicationUser> user)
-        {
-            _user = user;
             unitOfWork = new GenericUnitOfWork(new HrContext());
             RolRep = unitOfWork.Repository<Roles>();
             FeaRep = unitOfWork.Repository<Features>();
             FeatureConfig = unitOfWork.Repository<FeatureAccessConfig>();
+        }
+        public HomeController(UserManager<ApplicationUser> user)
+        {
+            _user = user;
         }
         //  [Authorize]
         public ActionResult Index()
@@ -87,7 +87,9 @@ namespace EHRMS.Controllers
         {
             for (int i = 1; i < FeatureRole.Feature.Length; i++)
             {
-                var FRcon = FeatureConfig.FindBy(x => x.Feature_Id == FeatureRole.Feature[i] && x.Role_Id == FeatureRole.Role[i]).FirstOrDefault();
+                var Feature = FeatureRole.Feature[i];
+                var Role = FeatureRole.Role[i];
+                FeatureAccessConfig FRcon = FeatureConfig.FindBy(x => x.Feature_Id == Feature && x.Role_Id == Role).FirstOrDefault();
                 if (FRcon != null)
                 {
                     FRcon.Feature_Id = FeatureRole.Feature[i];

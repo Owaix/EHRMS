@@ -1,26 +1,34 @@
-﻿$(document).ready(function () {
+﻿/// <reference path="jquery-1.10.2.js" />
+/// <reference path="jquery-1.10.2.intellisense.js" />
+
+$(document).ready(function () {
     GetHeader();
     GetBody();
+    var clkdId;
     $('table td.shift').on('click', function () {
-        if ($(this).hasClass("Normal")) {
-            $(this).removeClass("Normal")
-            $(this).addClass("Timeoff")
-        } else {
-            $(this).addClass("Normal");
-        }
+        //if ($(this).hasClass("Normal")) {
+        //    $(this).removeClass("Normal")
+        //    $(this).addClass("Timeoff")
+        //} else {
+        $(this).addClass("Normal");
+        //  }
         var val1 = $(this).attr("value").split("_")[0];
         var val2 = $(this).attr("value").split("_")[1];
         $(this).html("<span>" + val1 + " " + val2 + "<i class='glyphicon glyphicon-cog margincog'></i></span>");
     });
 
-    $('table td').on('click', '.glyphicon-cog', function () {
+    $('table td').on('click', '.glyphicon-cog', function (event) {
+        $(this).parent().parent().removeClass("shift")
+        clkdId = $(this).parent().parent().attr("value");
+        event.stopPropagation();
         $("#Modal").modal();
-        $("#modelBody").html("<p>Date: <input type='text' id='datepicker'></p><br><input type='button' value='Submit' id='btn'>");
+        $("#modelBody").html("<p>Date: <input type='text' id='datepicker'></p><br><input data-toggle='modal' type='button' value='Submit' id='btn'>");
         $("#datepicker").datepicker();
     });
 
     $('#modelBody').on('click', '#btn', function () {
-       
+        $("[value='" + clkdId + "']").html($('#datepicker').val());
+        console.log($('#datepicker').val());
     });
 });
 function GetHeader() {
