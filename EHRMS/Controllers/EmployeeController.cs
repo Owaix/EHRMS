@@ -16,6 +16,8 @@ using Common.Utility;
 using EHRMS.IdentityExtensions;
 using System.Web;
 using EHRMS.Models;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EHRMS.Controllers
 {
@@ -30,20 +32,31 @@ namespace EHRMS.Controllers
             unitOfWork = new GenericUnitOfWork(new HrContext());
             EmpRep = unitOfWork.Repository<Employee>();
         }
-
         public ActionResult Index(int? page)
         {
-            var item = EmpRep.FindBy(x => x.IsActive == false).ToList();
-            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
-            return View(items.ToPagedList(page ?? 1, 10));
+            List<EmployeeVM> emp = new List<EmployeeVM>();
+            SqlParameter[] parameter = { new SqlParameter("@Search",""),
+                new SqlParameter("@pageNo",1),
+                new SqlParameter("@pageSize",10),
+                new SqlParameter("@sort","Id")
+            };
+            DataSet ds = SqlHelper.CallRProc("SelectEmp", parameter);
+            var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new EmployeeVM
+            {
+                Id = dataRow.Field<int>("Id"),
+                Name = dataRow.Field<string>("Name"),
+                Department = dataRow.Field<string>("Department"),
+                Designation = dataRow.Field<string>("Designation"),
+                Salary = dataRow.Field<float>("Salary"),
+                Age = dataRow.Field<int>("Age")
+            }).ToList();
+            ViewBag.Count = ds.Tables[1].Rows[0][0].ToString();
+            return View(empList);
         }
         [HttpPost]
-        public ActionResult Index(int IsTrue)
+        public ActionResult Index(int page)
         {
-            int? page = null;
-            var item = EmpRep.FindBy(x => x.IsActive == (IsTrue == 1 ? true : false)).ToList();
-            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
-            return PartialView("_EmpList", items.ToPagedList(page ?? 1, 10));
+            return View();
         }
 
         [HttpPost]
