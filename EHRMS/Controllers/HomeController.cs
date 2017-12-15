@@ -39,7 +39,8 @@ namespace EHRMS.Controllers
         public ActionResult Index()
         {
             HrContext db = new HrContext();
-            return View(db.menu.ToList());
+            IList<Menu> menu = db.menu.ToList<Menu>();
+            return View(menu);
         }
         [HttpPost]
         public ActionResult Index(String Name, String Mail, String Address)

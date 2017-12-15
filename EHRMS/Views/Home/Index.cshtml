@@ -2,18 +2,9 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div ng-app="MyApp">
-    <div ng-controller="GetList">
-        <div ng-repeat="x in list">
-            {{x}}
-        </div>
-    </div>
-</div>
-
-<h2>Indexr</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
