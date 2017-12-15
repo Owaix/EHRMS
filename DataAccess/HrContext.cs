@@ -10,6 +10,7 @@ namespace DataAccess
     {
         public HrContext() : base(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)
         {
+            this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer<HrContext>(null);
         }
         public DbSet<Employee> employee { get; set; }

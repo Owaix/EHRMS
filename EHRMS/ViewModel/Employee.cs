@@ -15,5 +15,6 @@ namespace EHRMS.ViewModel
         public String Department { get; set; }
         public String Designation { get; set; }
         public float Salary { get; set; }
+        public int Age { get; set; }
     }
 }

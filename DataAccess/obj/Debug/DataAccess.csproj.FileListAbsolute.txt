@@ -46,3 +46,4 @@ C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\D
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.Migrations.adn.resources
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.Migrations.adnn.resources
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.Migrations.adnnl.resources

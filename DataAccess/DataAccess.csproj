@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201712150705476_adnn.Designer.cs">
       <DependentUpon>201712150705476_adnn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712150740033_adnnl.cs" />
+    <Compile Include="Migrations\201712150740033_adnnl.Designer.cs">
+      <DependentUpon>201712150740033_adnnl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicProfile.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712150705476_adnn.resx">
       <DependentUpon>201712150705476_adnn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150740033_adnnl.resx">
+      <DependentUpon>201712150740033_adnnl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

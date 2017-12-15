@@ -16,7 +16,7 @@ namespace Common
         /// </summary>
         public static SqlConnection DefaultSqlConnection
         {
-        //    get { return _DefaultSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString); }
+            //    get { return _DefaultSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString); }
             set { _DefaultSqlConnection = value; }
         }
 
@@ -60,8 +60,8 @@ namespace Common
                     }
 
                     if (sqlCommand.CommandText.Contains("Logs_") == false)
-                    {  
-                       // new Entities.Logs().Log_SQL_NonQuery("", sqlCommand.CommandText, retval);
+                    {
+                        // new Entities.Logs().Log_SQL_NonQuery("", sqlCommand.CommandText, retval);
                     }
                     return retval;
                 }
@@ -71,7 +71,11 @@ namespace Common
                 }
             }
         }
-
+        public static DataSet CallRProc(String SP , SqlParameter[] para)
+        {
+            SqlCommand cmd = new SqlCommand();
+            return ExecuteDataset(cmd);
+        }
         /// <summary>
         /// Execute a SqlCommand (that returns a Dataset) against the database, specified in connection string.
         /// </summary>
