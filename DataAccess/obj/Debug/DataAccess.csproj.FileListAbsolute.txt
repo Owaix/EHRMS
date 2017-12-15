@@ -40,8 +40,9 @@ C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\bin\Debug\E
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
-C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.Migrations.NewMig.resources
-C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.Migrations.adn.resources
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\HRMS\DataAccess\obj\Debug\DataAccess.Migrations.adnn.resources

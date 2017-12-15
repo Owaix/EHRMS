@@ -38,12 +38,8 @@ namespace EHRMS.Controllers
         //  [Authorize]
         public ActionResult Index()
         {
-            var id = User.Identity.GetCompanyId();
-            //UserManager.AddToRole(user.Id, model.Role);
-            //var b = UserManager.FindById(User.Identity.GetUserId()).Role;
-            //var role = UserManager.GetRoles(user.Id);
-
-            return View();
+            HrContext db = new HrContext();
+            return View(db.menu.ToList());
         }
         [HttpPost]
         public ActionResult Index(String Name, String Mail, String Address)

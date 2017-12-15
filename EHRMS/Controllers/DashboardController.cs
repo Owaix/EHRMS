@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using EHRMS.IdentityExtensions;
+using DataAccess;
 
 namespace EHRMS.Controllers
 {
@@ -24,7 +25,8 @@ namespace EHRMS.Controllers
         [HttpPost]
         public ActionResult Indexr()
         {
-            return View();
+            HrContext db = new HrContext();
+            return View(db.menu.ToList());
         }
     }
 }

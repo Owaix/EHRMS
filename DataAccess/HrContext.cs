@@ -16,6 +16,7 @@ namespace DataAccess
         public DbSet<Features> feature { get; set; }
         public DbSet<Roles> role { get; set; }
         public DbSet<FeatureAccessConfig> FRConfig { get; set; }
+        public DbSet<Menu> menu { get; set; }
         //public DbSet<AcademicProfile> Academic { get; set; }
     }
 }

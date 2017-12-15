@@ -52,15 +52,20 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="HrContext.cs" />
-    <Compile Include="Migrations\201711261205575_NewMig.cs" />
-    <Compile Include="Migrations\201711261205575_NewMig.Designer.cs">
-      <DependentUpon>201711261205575_NewMig.cs</DependentUpon>
+    <Compile Include="Migrations\201712150705121_adn.cs" />
+    <Compile Include="Migrations\201712150705121_adn.Designer.cs">
+      <DependentUpon>201712150705121_adn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712150705476_adnn.cs" />
+    <Compile Include="Migrations\201712150705476_adnn.Designer.cs">
+      <DependentUpon>201712150705476_adnn.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicProfile.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\FeatureAccessConfig.cs" />
     <Compile Include="Models\Features.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -69,12 +74,17 @@
     <Compile Include="UOW\IGenericUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711261205575_NewMig.resx">
-      <DependentUpon>201711261205575_NewMig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712150705121_adn.resx">
+      <DependentUpon>201712150705121_adn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150705476_adnn.resx">
+      <DependentUpon>201712150705476_adnn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
