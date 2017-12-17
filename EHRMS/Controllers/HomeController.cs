@@ -21,14 +21,16 @@ namespace EHRMS.Controllers
     {
         UserManager<ApplicationUser> _user;
         private GenericUnitOfWork unitOfWork;
+        private GenericRepository<MainMenus> MenuRep;
         private GenericRepository<FeatureAccessConfig> FeatureConfig;
         private GenericRepository<Roles> RolRep;
-        private GenericRepository<Features> FeaRep;
+        private GenericRepository<DataAccess.Models.SubMenu> FeaRep;
         public HomeController()
         {
             unitOfWork = new GenericUnitOfWork(new HrContext());
+            MenuRep = unitOfWork.Repository<MainMenus>();
             RolRep = unitOfWork.Repository<Roles>();
-            FeaRep = unitOfWork.Repository<Features>();
+            FeaRep = unitOfWork.Repository<DataAccess.Models.SubMenu>();
             FeatureConfig = unitOfWork.Repository<FeatureAccessConfig>();
         }
         public HomeController(UserManager<ApplicationUser> user)
@@ -39,7 +41,7 @@ namespace EHRMS.Controllers
         public ActionResult Index()
         {
             HrContext db = new HrContext();
-            IList<Menu> menu = db.menu.ToList<Menu>();
+            var menu = db.menu.Include("feature").ToList();
             return View(menu);
         }
         [HttpPost]
@@ -68,6 +70,8 @@ namespace EHRMS.Controllers
         public ActionResult AccessConfigJson()
         {
             FeatureRoles Fr = new FeatureRoles();
+            var MenuModel = MenuRep.GetAll();
+            Fr.Menu = Mapper.Map<IEnumerable<MenuVM>>(MenuModel);
             var RolesModel = RolRep.GetAll();
             Fr.Role = Mapper.Map<IEnumerable<RolesVM>>(RolesModel);
             var FeatModel = FeaRep.GetAll();
@@ -82,7 +86,7 @@ namespace EHRMS.Controllers
 
         public JsonResult AddFeature(AllAccessConfig FeatureRole)
         {
-            for (int i = 1; i < FeatureRole.Feature.Length; i++)
+            for (int i = 0; i < FeatureRole.Feature.Length; i++)
             {
                 var Feature = FeatureRole.Feature[i];
                 var Role = FeatureRole.Role[i];

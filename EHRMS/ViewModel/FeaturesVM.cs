@@ -12,6 +12,8 @@ namespace EHRMS.ViewModel
         [Key]
         public int id { get; set; }
         public String Name { get; set; }
-        public Nullable<int> SubMenuId { get; set; }
+        public String Action { get; set; }
+        public String Controller { get; set; }
+        public Nullable<int> Menu_Id { get; set; }
     }
 }

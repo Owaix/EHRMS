@@ -23,7 +23,8 @@ namespace EHRMS.App_Start
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Employee, EmployeeVM>().ReverseMap();
-                cfg.CreateMap<Features, FeaturesVM>().ReverseMap();
+                cfg.CreateMap<DataAccess.Models.MainMenus, MenuVM>().ReverseMap();
+                cfg.CreateMap<DataAccess.Models.SubMenu, FeaturesVM>().ReverseMap();
                 cfg.CreateMap<Roles, RolesVM>().ReverseMap();
             });
         }

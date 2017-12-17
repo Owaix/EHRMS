@@ -8,6 +8,7 @@ namespace EHRMS.ViewModel
     public class FeatureRoles
     {
         public IEnumerable<RolesVM> Role { get; set; }
+        public IEnumerable<MenuVM> Menu { get; set; }
         public IEnumerable<FeaturesVM> Feature { get; set; }
     }
 }

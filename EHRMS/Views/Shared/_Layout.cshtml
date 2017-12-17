@@ -328,7 +328,7 @@
         <!--header end-->
         <!--sidebar start-->
         <aside>
-            @Html.Partial("_Menus");
+            @Html.Partial("_Menus", new EHRMS.Utility.Common().GetMenu());
         </aside>
         <!--sidebar end-->
         <!--main content start-->

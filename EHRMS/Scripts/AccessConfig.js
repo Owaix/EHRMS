@@ -11,6 +11,8 @@ $.ajax({
         table += '<tr>';
         table += '<th>';
         table += '</th>';
+        table += '<th>';
+        table += '</th>';
         var Role = datas.Role;
         for (var i = 0; i < Role.length ; i++) {
             table += '<th>';
@@ -18,24 +20,32 @@ $.ajax({
             table += '</th>';
         }
         table += '</tr>';
+        var Menu = datas.Menu;
         var Feature = datas.Feature;
         for (var i = 0; i < Feature.length ; i++) {
             table += '<tr>';
-            table += '<td>';
-            table += Feature[i].Name;
-            table += '</td>';
-            for (var j = 0; j < Role.length ; j++) {
+            for (var j = 0; j < Menu.length ; j++) {
+                if (Menu[j].Menu_Id == Feature[i].Menu_Id) {
                 table += '<td>';
-                table += "<input type='checkbox' value='" + +Feature[i].id + "_" + Role[j].Id + "'>";
+                table += Menu[j].Name;
                 table += '</td>';
             }
-            table += '<tr>';
         }
-        $('.table-bordered').html(table);
-    },
-    error: function (request, status, error) {
-        alert(request, status, error);
+        table += '<td>';
+        table += Feature[i].Name;
+        table += '</td>';
+        for (var j = 0; j < Role.length ; j++) {
+            table += '<td>';
+            table += "<input type='checkbox' value='" + +Feature[i].id + "_" + Role[j].Id + "'>";
+            table += '</td>';
+        }
+        table += '</tr>';
     }
+        $('.table-bordered').html(table);
+},
+error: function (request, status, error) {
+    alert(request, status, error);
+}
 });
 
 var Feat = [];
