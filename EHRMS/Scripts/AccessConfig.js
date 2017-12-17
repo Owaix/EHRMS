@@ -26,26 +26,26 @@ $.ajax({
             table += '<tr>';
             for (var j = 0; j < Menu.length ; j++) {
                 if (Menu[j].Menu_Id == Feature[i].Menu_Id) {
+                    table += '<td class="menu">';
+                    table += Menu[j].Name;
+                    table += '</td>';
+                }
+            }
+            table += '<td>';
+            table += Feature[i].Name;
+            table += '</td>';
+            for (var j = 0; j < Role.length ; j++) {
                 table += '<td>';
-                table += Menu[j].Name;
+                table += "<input type='checkbox' value='" + +Feature[i].id + "_" + Role[j].Id + "'>";
                 table += '</td>';
             }
+            table += '</tr>';
         }
-        table += '<td>';
-        table += Feature[i].Name;
-        table += '</td>';
-        for (var j = 0; j < Role.length ; j++) {
-            table += '<td>';
-            table += "<input type='checkbox' value='" + +Feature[i].id + "_" + Role[j].Id + "'>";
-            table += '</td>';
-        }
-        table += '</tr>';
-    }
         $('.table-bordered').html(table);
-},
-error: function (request, status, error) {
-    alert(request, status, error);
-}
+    },
+    error: function (request, status, error) {
+        alert(request, status, error);
+    }
 });
 
 var Feat = [];

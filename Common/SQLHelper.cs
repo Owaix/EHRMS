@@ -16,7 +16,7 @@ namespace Common
         /// </summary>
         public static SqlConnection DefaultSqlConnection
         {
-            //    get { return _DefaultSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString); }
+            get { return _DefaultSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString); }
             set { _DefaultSqlConnection = value; }
         }
 
@@ -71,9 +71,11 @@ namespace Common
                 }
             }
         }
-        public static DataSet CallRProc(String SP , SqlParameter[] para)
+        public static DataSet CallRProc(String SP, SqlParameter[] para)
         {
-            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmd = new SqlCommand(SP, DefaultSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddRange(para);
             return ExecuteDataset(cmd);
         }
         /// <summary>
