@@ -36,11 +36,11 @@ namespace EHRMS.Controllers
         {
             List<EmployeeVM> emp = new List<EmployeeVM>();
             SqlParameter[] parameter = { new SqlParameter("@Search",""),
-                new SqlParameter("@pageNo",1),
+                new SqlParameter("@pageNo",page),
                 new SqlParameter("@pageSize",10),
-                new SqlParameter("@sort","Id")
+                new SqlParameter("@order","Id")
             };
-            DataSet ds = SqlHelper.CallRProc("SelectEmp", parameter);
+            DataSet ds = SqlHelper.CallRProc("GetEmployee", parameter);
             var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new EmployeeVM
             {
                 Id = dataRow.Field<int>("Id"),
@@ -54,9 +54,26 @@ namespace EHRMS.Controllers
             return View(empList);
         }
         [HttpPost]
-        public ActionResult Index(int page)
+        public ActionResult Index(int? page, int? para)
         {
-            return View();
+            List<EmployeeVM> emp = new List<EmployeeVM>();
+            SqlParameter[] parameter = { new SqlParameter("@Search",""),
+                new SqlParameter("@pageNo",page),
+                new SqlParameter("@pageSize",10),
+                new SqlParameter("@order","Id")
+            };
+            DataSet ds = SqlHelper.CallRProc("GetEmployee", parameter);
+            var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new EmployeeVM
+            {
+                Id = dataRow.Field<int>("Id"),
+                Name = dataRow.Field<string>("Name"),
+                Department = dataRow.Field<string>("Department"),
+                Designation = dataRow.Field<string>("Designation"),
+                Salary = dataRow.Field<float>("Salary"),
+                Age = dataRow.Field<int>("Age")
+            }).ToList();
+            ViewBag.Count = ds.Tables[1].Rows[0][0].ToString();
+            return PartialView("_EmpList",empList);
         }
 
         [HttpPost]
