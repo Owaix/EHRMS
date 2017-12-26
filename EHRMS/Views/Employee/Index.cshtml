@@ -1,0 +1,173 @@
+﻿
+@model IEnumerable<EHRMS.ViewModel.EmployeeVM>
+@{
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@Html.ReportViewer();*@
+<style>
+    .pagination-container {
+        text-align: center;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <!--notification start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Employees List
+            </header>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="txtdptSrch" placeholder="Search" name="search">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" id="btnSrchDept" type="submit"><i class="fa fa-search-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-3">
+                        <div class="btn-group">
+                            <a class="btn btn-primary btn-md" href="@Url.Action("New", "Employee")"><span class="fa fa-plus"></span>   Add</a>
+                            <a class="btn btn-default btn-md" href="@Url.Action("New", "Employee")"><span class="fa fa-print"></span></a>
+                            <a class="btn btn-default btn-md" href="@Url.Action("ExportClientsListToExcel", "Employee")"><span class="fa fa-file-excel-o"></span></a>
+                            @*@Html.ActionLink("Export to Excel", "ExportClientsListToExcel")*@
+                            <select id="ddlIsActive" style="height: 33px;" class="btn btn-default btn-md"><option value="1">Active</option><option value="2">In-Active</option></select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="RenderPartial">
+                          @Html.Partial("_EmpList",Model);
+                        </div>
+                        <nav style="text-align:center" aria-label="Page navigation">
+                            <ul class="pagination" id="pagination"></ul>
+                        </nav>
+                        @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] }))*@
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p id="modelBody"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var isPageLoad = true;
+        var total = @ViewBag.Count;
+        var obj = $('#pagination').twbsPagination({
+            totalPages: Math.ceil(total/10),
+            visiblePages: 5,
+            onPageClick: function (event, page) {
+                if (!isPageLoad) {
+                  $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Employee")',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ page: page }),
+                success: function (datas) {
+                    $('.RenderPartial').html(datas);
+                    $('.RenderPartial').dialog('open');
+                },
+                error: function (err) {
+                    console.log('ERROR', err);
+                }
+            });
+                }
+                else
+                { isPageLoad = !isPageLoad; }
+            }
+        });
+
+
+
+
+        console.info("clicked" + obj.data());
+        //$(document).on("click", "btn-success", function () {
+        //    $(this).text("It works!");
+        //});
+
+        $(".btn-success").click(function () {
+
+            alert('aa');
+
+        });
+
+        $("#lnkEdit").click(function () {
+            $("#myModal").modal();
+            $("#modelBody").html("Modal Has Clicked");
+        });
+
+        $("#ddlIsActive").change(function () {
+
+            var val = $('#ddlIsActive').val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Index", "Employee")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                data: JSON.stringify({ IsTrue: val }),
+                success: function (datas) {
+                    $('.RenderPartial').html(datas);
+                },
+                error: function (err) {
+                    console.log('ERROR', err);
+                }
+            });
+        });
+
+        $("#txtdptSrch").on("keyup", function () {
+            var value = $(this).val();
+            $(".table tr").each(function (index, value) {
+                console.log(index + value);
+                if (index !== 0) {
+                    $row = $(this);
+                    var id = $row.find("td:first").text();
+                    if (id.indexOf(value) !== 0) {
+                        $row.hide();
+                    }
+                    else {
+                        $row.show();
+                    }
+                }
+            });
+        });
+
+
+
+        $("#btnSrchDept").click(function () {
+            var val = $('#txtdptSrch').val();
+            $('#modelBody').load("/Employee/Edit/" + val);//$(this).data("id"));
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SearchList", "Employee")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ name: val }),
+                success: function (datas) {
+                    alert('Rows saved!');
+                },
+            });
+        });
+    });
+
+</script>
