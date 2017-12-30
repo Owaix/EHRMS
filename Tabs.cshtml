@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Tabs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="checkbox" checked value="1"> Pakistan<br />
+<input type="checkbox" value="2">  China<br />
+<input type="checkbox" value="3">  USA<br />
+<input type="checkbox" value="4">  UK<br />
+<input type="checkbox" value="5">
+        IRAN<br />
+<input type="checkbox" value="6">  Malaysia<br />
+<br />
+<br />
+<div class="container container-fluid">
+    <br />
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            @*<table class="table">
+                    <thead></thead>
+                    <tbody></tbody>
+                    <tfoot></tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>School</th>
+                    </tr>
+                    <tr><td>JOHN</td></tr>
+                </table>*@
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("input").change(function (e) {
+            if ($(this).is(":checked")) {
+                if ($('tbody.' + $(this).val() + ' > tr').length <= 0) {
+                    $('.nav-tabs').append("<li class='" + $(this).val() + "'><a data-toggle='tab' href='#" + $(this).val() + "'>" + $(this).val() + "</a></li>");
+                    $('.tab-content').append("<div id='" + $(this).val() + "' class='tab-pane fade'>" +
+                        "<h3>" + $(this).val() + "</h3>" +
+                        "<table class='table'><thead><tr>" +
+                        "<th></th>" +
+                        "<th>Name</th>" +
+                        "<th>Class</th>" +
+                        "<th>Subject</th>" +
+                        "<th>School</th>" +
+                        "</tr></thead><tbody class='" + $(this).val() + "'></tbody><tfoot></tfoot></table>" +
+                        "</div>");
+                    GetTable($(this).val());
+                }
+            }
+            else {
+                $('.nav-tabs > li.' + $(this).val()).remove();
+                $('.tab-content > div#' + $(this).val()).remove();
+            }
+        });
+    })
+    var Employee = [
+        { Id: 1, Name: "James" },
+        { Id: 2, Name: "Cook" },
+        { Id: 3, Name: "Sam" },
+        { Id: 4, Name: "John" },
+        { Id: 5, Name: "Tim" },
+        { Id: 6, Name: "Adam" }
+    ];
+    function GetTable(country) {
+        var table = '';
+        for (var i = 0; i < Employee.length; i++) {
+            table = table += '<tr>';
+            table += '<td>';
+            table += Employee[i].Name;
+            table += '</td>';
+
+            for (var j = 0; j < 4; j++) {
+                table += '<td>';
+                table += "<input data-country='" + country + "' data-Emp='" + j + "' type='checkbox'>";
+                table += '</td>';
+            }
+            table += '</tr>';
+        }
+        $('table tbody.' + country).append(table);
+    }
+</script>
