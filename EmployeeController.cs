@@ -16,6 +16,7 @@ using Common.Utility;
 using EHRMS.IdentityExtensions;
 using System.Web;
 using EHRMS.Models;
+using EHRMS.Utility;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -37,12 +38,15 @@ namespace EHRMS.Controllers
         public ActionResult Index(int? page)
         {
             List<EmployeeVM> emp = new List<EmployeeVM>();
+            DateTime strt = new DateTime(2018, 1, 2);
             SqlParameter[] parameter = { new SqlParameter("@Search",""),
                 new SqlParameter("@pageNo",page),
                 new SqlParameter("@pageSize",10),
                 new SqlParameter("@order","Id")
             };
+
             DataSet ds = SqlHelper.CallRProc("GetEmployee", parameter);
+            // IList<EmployeeVM> empLists = ds.Tables[0].ToList<EmployeeVM>();
             var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new EmployeeVM
             {
                 Id = dataRow.Field<int>("Id"),
@@ -52,6 +56,8 @@ namespace EHRMS.Controllers
                 Salary = dataRow.Field<float>("Salary"),
                 Age = dataRow.Field<int>("Age")
             }).ToList();
+            String emps = new EmployeeVM().Name;
+
             ViewBag.Count = ds.Tables[1].Rows[0][0].ToString();
             return View(empList);
         }
@@ -59,6 +65,7 @@ namespace EHRMS.Controllers
         public ActionResult Index(int? page, int? para)
         {
             List<EmployeeVM> emp = new List<EmployeeVM>();
+
             SqlParameter[] parameter = { new SqlParameter("@Search",""),
                 new SqlParameter("@pageNo",page),
                 new SqlParameter("@pageSize",10),
@@ -85,15 +92,16 @@ namespace EHRMS.Controllers
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View("Index", items.ToPagedList(1, 10));
         }
+
         public ActionResult New()
         {
             var id = User.Identity.GetCompanyId();
             Employee emp = new Employee();
             List<Country> list = new List<Country>();
-            list.Add(new Country { Id = 1, Name = "Pakistan" });
-            list.Add(new Country { Id = 2, Name = "India" });
-            list.Add(new Country { Id = 3, Name = "China" });
-            list.Add(new Country { Id = 4, Name = "USA" });
+            //list.Add(new Country { Id = 1, Name = "Pakistan" });
+            //list.Add(new Country { Id = 2, Name = "India" });
+            //list.Add(new Country { Id = 3, Name = "China" });
+            //list.Add(new Country { Id = 4, Name = "USA" });
             // emp.Country = new SelectList(list, "Id", "Name");
             return View();
         }
@@ -112,8 +120,9 @@ namespace EHRMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult New(EmployeeBasicInfoVM emp)//String[] Ins, String[] Deg, String[] Year)
+        public ActionResult New(HttpPostedFileWrapper[] fileup)//String[] Ins, String[] Deg, String[] Year)
         {
+            EmployeeBasicInfoVM emp = null;
             var empbasic = new EmployeeBasicInfo();
             empbasic.FirstName = emp.FirstName;
             empbasic.FatherName = emp.FatherName;
@@ -219,10 +228,16 @@ namespace EHRMS.Controllers
             Response.Write(sw.ToString());
             Response.End();
         }
+
     }
     public class Country
     {
-        public int Id { get; set; }
-        public String Name { get; set; }
+        //public int Id { get; set; }
+        //public String Name { get; set; }
+
+        public string ToStrin<T>(List<T> lst)
+        {
+            return "Pakistan";
+        }
     }
 }
