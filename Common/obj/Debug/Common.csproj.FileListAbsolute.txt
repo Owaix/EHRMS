@@ -33,3 +33,14 @@ C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Deb
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.pdb
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\DataAccess.dll.config
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\Common.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\Common.pdb
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\DataAccess.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\log4net.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\DataAccess.pdb
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\log4net.xml
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\Common\obj\Debug\Common.pdb

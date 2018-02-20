@@ -50,3 +50,17 @@ C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.pdb
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Owais.Ansari\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.Migrations.adNewMig.resources
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.Migrations.adNewMi.resources
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.Migrations.addbasic.resources
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Owaix\Documents\Visual Studio 2015\Projects\EHRMS\DataAccess\obj\Debug\DataAccess.pdb

@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Calender";
+}
+<style>
+    .borders {
+        text-align: center;
+        background-color: white;
+    }
+
+    .margincog {
+        margin-top: -7px;
+        float: right;
+        cursor: pointer;
+    }
+
+    td.shift {
+        cursor: pointer;
+    }
+
+    table {
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    .Timeoff {
+        background-color: rgb(255, 249, 179);
+    }
+
+    .Normal {
+        background-color: rgb(213, 255, 249);
+    }
+
+    #selectDate {
+        width: 50%;
+    }
+
+    .emp {
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <select id="selectDate" class="form-control"></select>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-inline calender-event">
+                <li>
+                    <a href="javascript:void(0)" class="btn btn-default calender-event-previous g-fileter-calender-main disabled">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li><span class="calender-event-week g-fileter-calender-main" style="font-size: 1.3em; color: #1995dc;">12/24/2017 - 12/30/2017</span></li>
+                <li>
+                    <a href="javascript:void(0)" class="btn btn-default calender-event-next g-fileter-calender-main">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <table class="table table-bordered">
+        <thead></thead>
+        <tbody></tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+<script src="~/Scripts/Calender.js"></script>
