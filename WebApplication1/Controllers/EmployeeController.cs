@@ -16,7 +16,6 @@ using Common.Utility;
 using EHRMS.IdentityExtensions;
 using System.Web;
 using EHRMS.Models;
-using EHRMS.Utility;
 using System.Data;
 using System.Data.SqlClient;
 
